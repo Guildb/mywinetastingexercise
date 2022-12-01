@@ -27,12 +27,19 @@
     </head>
     <body>
       <%- include('common/header'); -%>
-
       <div class="container">
-        <h1 class="text-center">Join</h1>
+        <% var message;
+        if (message){   %> 
+          <div class="row justify-content-md-center">
+            <div class="alert alert-primary" role="alert">
+                  <%= message %>
+            </div>  
+          </div>
+        <% } %>
+        <h1 class="text-center"><%= label %></h1>
         <div class="row justify-content-md-center">
           <div class="col-">
-            <form method="POST" action="/join">
+            <form method="POST" action=<%= action %>
               <div class="form-group">
                 <label for="name">Email</label>
                 <input
@@ -60,11 +67,12 @@
                 <% } %>
               </div>
 
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary"><%= label %></button>
             </form>
           </div>
         </div>
       </div>
+
       <%- include('common/footer'); -%>
     </body>
   </html>
